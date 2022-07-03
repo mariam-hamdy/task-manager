@@ -1,0 +1,11 @@
+div {
+   
+    position: fixed;
+    width: 100%;
+
+}
+@media screen and (max-width: 375px) {
+    div {
+        content: url(../../assets/images/bg-mobile-light.jpg);
+    }
+}
