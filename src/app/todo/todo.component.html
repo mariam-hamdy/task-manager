@@ -21,11 +21,15 @@
                         
                     </div>
                     <div class="filter">
-                        <div class="all">All</div>
+                        <!--<div class="all">All</div>
                         <div class="all">Active</div>
-                        <div class="completed">Completed</div>
+                        <div class="completed">Completed</div>-->
+                        <button class="btn" (click)="filter = 'all'">All</button>
+                        <button class="btn" (click)="filter = 'active'">Active</button>
+                        <button class="btn" (click)="filter = 'done'">Done</button>
                     </div>
-                    <div class="clear">Clear Completed</div>
+                    
+                    <button class="btn" (click)="clearCompleted()">Clear Completed</button>
                 </div>
             </div>
            

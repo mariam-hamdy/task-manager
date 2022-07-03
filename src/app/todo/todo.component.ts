@@ -41,6 +41,9 @@ export class TodoComponent implements OnInit {
     this.taskList.splice(this.taskList.indexOf(item),1);
   }
   
+  clearCompleted() {
+    this.taskList = this.filteredDoneItems;
+  }
   
   constructor() { }
 

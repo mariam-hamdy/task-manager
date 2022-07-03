@@ -2,5 +2,6 @@
     <input type="checkbox" [id]="item.taskName" class="check"
     [checked]="item.done" (click)="changeDone(item)">
     <label for="item.taskName">{{item.taskName}}</label>
+    <button class="btn" (click)="remove.emit()">X</button>
 
 </div>

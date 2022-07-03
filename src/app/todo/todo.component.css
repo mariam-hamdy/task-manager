@@ -52,11 +52,11 @@ ul {
 }
 .filter {
     display: flex;
-   
+    
 }
-.all {
+/*.all {
     margin-right: 1rem;
-}
+}*/
 
 .task {
     margin-bottom: 1.5rem;
@@ -82,4 +82,17 @@ hr {
 .creation-input:focus {
     outline: none;
     
+}
+
+.itemsNumber {
+    padding-top: .4rem;
+}
+.btn:hover {
+    cursor: pointer;
+    background-color: #c0bdbd;
+    
+}
+.btn:focus {
+    cursor: pointer;
+   color: hsl(220, 98%, 61%);
 }
