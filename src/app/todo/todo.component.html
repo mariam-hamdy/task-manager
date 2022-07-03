@@ -3,18 +3,23 @@
         <h1 class="hone">T O D O</h1>
         <div class="todo-list">
             <div class="creation">
-                <input type="text" value="Create a new task" class="creation-input"
-                onfocus= "value=' '">
+                <input #newTask type="text" placeholder="Create a new task" class="creation-input"
+                (keyup.enter)="addTask(newTask.value); newTask.value=' '">
             </div>
             <div class="list">
                 <ul>
-                    <li *ngFor="let task of taskList" class="task">
-                    <input type="checkbox" name="check" id="check"> {{task.taskName}}
+                    <li *ngFor="let item of filteredItems" class="task">
+                        <app-task [item]="item" (remove)="remove(item)"></app-task>
                     <hr>
                     </li>
                 </ul>
                 <div class="footer">
-                    <div class="itemsNumber">{{taskList.length}} items left</div>
+                    <div class="itemsNumber">{{filteredDoneItems.length}} 
+                        
+                        <span *ngIf="filteredDoneItems.length === 1; else elseBlock">item</span> 
+                        <ng-template #elseBlock>items</ng-template> left
+                        
+                    </div>
                     <div class="filter">
                         <div class="all">All</div>
                         <div class="all">Active</div>

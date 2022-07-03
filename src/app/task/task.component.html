@@ -1,0 +1,6 @@
+<div class="task">
+    <input type="checkbox" [id]="item.taskName" class="check"
+    [checked]="item.done" (click)="changeDone(item)">
+    <label for="item.taskName">{{item.taskName}}</label>
+
+</div>

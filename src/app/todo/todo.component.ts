@@ -8,15 +8,39 @@ import { IList } from './todoList';
 })
 export class TodoComponent implements OnInit {
 
-  
+  filter: 'all' | 'active' | 'done'= 'all';
+
   taskList: IList[]=[
-    /*{taskID: 1, taskName: 'finish javascript', done: false},
-    {taskID: 2, taskName: 'finish html', done: false},
-    {taskID: 3, taskName: 'finish css', done: false},
-    {taskID: 4, taskName: 'finish angular', done: false},
-    {taskID: 5, taskName: 'finish node', done: false}*/
-    
+    {taskName: 'finish javascript', done: true},
+    {taskName: 'finish html', done: false},
+    {taskName: 'finish css', done: false},
+    {taskName: 'finish angular', done: false},
+    {taskName: 'finish node', done: false}  
   ];
+  get filteredItems() {
+    if(this.filter ==='all') {
+      return this.taskList;
+    }
+    return this.taskList.filter(item => this.filter === 'done'? 
+    item.done: !item.done);
+  }
+
+  get filteredDoneItems() {
+    return this.taskList.filter(item => item.done === false);
+  }
+  addTask(taskName:string) {
+    if(taskName.length > 0 && taskName.trim()) {
+      this.taskList.unshift({
+        taskName,
+        done:false
+      })
+    }
+  }
+
+  remove(item:IList) {
+    this.taskList.splice(this.taskList.indexOf(item),1);
+  }
+  
   
   constructor() { }
 
